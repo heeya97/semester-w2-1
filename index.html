@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+	<title>적정 칼로리 계산법</title>
+	<style type="text/css">
+		@font-face { font-family: 'InkLipquid'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/InkLipquid.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+		div{font-size: 27px; text-align: center;}
+		input{font-size: 27px;
+			  border-width: 3px;
+			  border-radius: 7px;
+			  padding: 15px;
+			  width: 150px; border-color: #444; border-style: solid; height: 50px; }
+		body{padding: 20px; margin:0; background-color: #ffbc00;}
+		select{font-size: 27px; padding: 15px; width: 183px;  border-radius: 7px; border-width: 3px; border-style: solid; border-color: #444; height: 85px; }
+
+		#head{font-size: 80px; font-family: 'Black Han Sans', sans-serif; text-align: center; margin-top: 35px;}
+		#p1{ font-family: 'InkLipquid', cursive; font-size: 45px; line-height: 0.5em; text-align: right; width: 375px; margin: auto; margin-bottom: 190px; margin-top: 10px;}
+		#monitor{font-family: 'Black Han Sans', sans-serif; font-size: 80px; text-align: right; margin:105px;}
+		#caption{font-size: 1em; text-align: left; line-height: 1.5em;  width: 420px; margin: auto; background: #ddd; padding: 15px; margin-top: 0px; margin-bottom: 15px; float: left; position: absolute; top: 560px; left: 125px; border-radius: 7px;}
+
+		.placeholder{font-size: 5px;}
+
+	</style>
+</head>
+
+<body>
+	<div id="head">나의, 하루 적정 <span style="color: #ba00ff">칼로리Kcal</span>는 얼마일까?</div>
+	<br><br>
+
+
+	<div id="p1">
+		체중  :  <input type="text" id="mweight" name="체중" placeholder="입력"><br><br>
+		<span style="color:#fff;">*</span> 활동계수  :  <select id="act" name="활동계수">
+			<option value="0">선택</option>
+			<option value="1.1">1.1</option>
+			<option value="1.3">1.3</option>
+			<option value="1.5">1.5</option>
+			<option value="1.7">1.7</option>
+			<option value="1.8">1.9</option>
+		</select>
+			<!--<input type="text" id="act" placeholder="선택">-->
+		<br><br>
+	</div>
+
+
+	<div id="monitor"><span style="color: #ba00ff">0 </span>kacl</div>
+	<br><br><!-- br 말고 다른 방법 찾아보기 -->
+
+
+	<div id="caption"><strong>* 활동계수</strong><br>
+		주로 앉아서 생활하는 사람은 -> <strong>1.3</strong><br>
+		회사원 등 어느 정도 규칙적인 생활을 하는 사람은 -> <strong>1.5</strong><br>육체노동자 등 신체 활동이 많은 사람은 -> <strong>1.7</strong><br>
+			<!--list로 숫자 만들어 보기 -->
+
+
+	<script type="text/javascript">
+			mweight.oninput = function(){
+				var kacl = mweight.value*24*act.value;
+				monitor.innerHTML = Math.round(kacl) + " kacl 입니다!";
+			}
+
+			act.oninput = function(){
+				var kacl = mweight.value*24*act.value;
+				monitor.innerHTML = Math.round(kacl) + " kacl 입니다!";
+			}
+
+			
+	</script>
+
+
+	</div>
+</body>
+</html>
